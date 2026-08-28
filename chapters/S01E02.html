@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chapter 2 — The Family | The Black Willow</title>
+<title>Chapter 1 — The World | The Black Willow</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -26,6 +26,7 @@ html, body {
   overflow-x: hidden;
 }
 
+/* ── TOP BAR ── */
 .top-bar {
   position: fixed;
   top: 0;
@@ -89,6 +90,7 @@ html, body {
   color: var(--text-muted);
 }
 
+/* ── MAIN LAYOUT ── */
 .main-layout {
   display: grid;
   grid-template-columns: 180px 1fr 180px;
@@ -102,6 +104,7 @@ html, body {
   padding-right: 20px;
 }
 
+/* ── SIDE IMAGES ── */
 .side-images {
   display: flex;
   flex-direction: column;
@@ -120,12 +123,16 @@ html, body {
   border: 1px solid var(--border);
 }
 
-.side-img:hover { filter: brightness(0.9) sepia(0.1); }
+.side-img:hover {
+  filter: brightness(0.9) sepia(0.1);
+}
+
 .side-img.visible { opacity: 1; }
 .side-img:nth-child(1) { transition-delay: 0.2s; }
 .side-img:nth-child(2) { transition-delay: 0.5s; }
 .side-img:nth-child(3) { transition-delay: 0.8s; }
 
+/* ── CENTER ── */
 .center-content {
   display: flex;
   flex-direction: column;
@@ -170,6 +177,7 @@ html, body {
   font-style: italic;
 }
 
+/* ── PLAYER ── */
 .player-wrap {
   position: fixed;
   bottom: 0;
@@ -198,6 +206,7 @@ html, body {
   font-style: italic;
 }
 
+/* Timeline */
 .timeline-wrap {
   position: relative;
   width: 100%;
@@ -236,6 +245,7 @@ html, body {
 
 .timeline-wrap:hover .timeline-thumb { opacity: 1; }
 
+/* Controls */
 .player-controls {
   display: flex;
   align-items: center;
@@ -266,6 +276,7 @@ html, body {
   font-size: 0.7rem;
   transition: all 0.15s;
   font-family: 'Georgia', serif;
+  letter-spacing: 0;
 }
 
 .ctrl-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
@@ -312,15 +323,25 @@ html, body {
 
 .speed-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
 
+/* ── MOBILE ── */
 @media (max-width: 768px) {
   .main-layout {
     grid-template-columns: 1fr;
     padding-left: 16px;
     padding-right: 16px;
   }
-  .side-images { flex-direction: row; padding-top: 0; }
+
+  .side-images {
+    flex-direction: row;
+    padding-top: 0;
+  }
+
   .side-images.right-side { display: none; }
-  .side-img { aspect-ratio: 1; }
+
+  .side-img {
+    aspect-ratio: 1;
+  }
+
   .player-wrap { padding: 12px 16px 20px; }
   .vol-wrap { display: none; }
 }
@@ -328,43 +349,49 @@ html, body {
 </head>
 <body>
 
+<!-- ── TOP BAR ── -->
 <div class="top-bar">
   <a href="../index.html" class="back-link">← Black Willow</a>
-  <span class="chapter-label">Chapter 2 — The Family</span>
+  <span class="chapter-label">Chapter 1 — The World</span>
   <div class="music-toggle">
     <button class="music-btn active" id="btn-no-music" onclick="switchVersion('no-music')">🔇 No Music</button>
     <button class="music-btn" id="btn-music" onclick="switchVersion('music')">🎵 Music</button>
   </div>
 </div>
 
+<!-- ── MAIN LAYOUT ── -->
 <div class="main-layout">
 
+  <!-- Left images -->
   <div class="side-images left-side">
-    <img src="../Images/Festival.jpg" class="side-img" alt="The Festival" onerror="this.style.display='none'">
-    <img src="../Images/Hacienda Kitchen.jpg" class="side-img" alt="The Kitchen" onerror="this.style.display='none'">
-    <img src="../Images/Helicopter.jpg" class="side-img" alt="The Helicopter" onerror="this.style.display='none'">
+    <img src="../images/Trian_Night.jpeg" class="side-img" alt="The Train" onerror="this.style.display='none'">
+    <img src="../images/Blood_River.jpeg" class="side-img" alt="The Valley" onerror="this.style.display='none'">
+    <img src="../images/Vines.jpeg" class="side-img" alt="The Vines" onerror="this.style.display='none'">
   </div>
 
+  <!-- Center -->
   <div class="center-content">
-    <img src="../Images/New Cover.jpg" class="cover-image" alt="The Black Willow" onerror="this.src='../cover.jpg'">
+    <img src="../Images/NewCover.jpg" class="cover-image" alt="The Black Willow">
     <div class="chapter-title-block">
-      <div class="chapter-num">Season One · Chapter Two</div>
-      <div class="chapter-title">The Family</div>
-      <div class="chapter-sub">The valley celebrates. Not everyone is dancing.</div>
+      <div class="chapter-num">Season One · Chapter One</div>
+      <div class="chapter-title">The World</div>
+      <div class="chapter-sub">A midnight train. A valley that remembers.</div>
     </div>
   </div>
 
+  <!-- Right images -->
   <div class="side-images right-side">
-    <img src="../Images/Boardroom.jpeg" class="side-img" alt="The Boardroom" onerror="this.style.display='none'">
-    <img src="../Images/Helicopter.jpg" class="side-img" alt="Surveying" onerror="this.style.display='none'">
-    <img src="../Images/Festival.jpg" class="side-img" alt="Festival" onerror="this.style.display='none'">
+    <img src="../images/boy_vines.jpg" class="side-img" alt="The Boy" onerror="this.style.display='none'">
+    <img src="../images/hacienda.jpg" class="side-img" alt="The Hacienda" onerror="this.style.display='none'">
+    <img src="../images/joaquin.jpeg" class="side-img" alt="Joaquin" onerror="this.style.display='none'">
   </div>
 
 </div>
 
+<!-- ── PLAYER ── -->
 <div class="player-wrap">
   <div class="player-track-info">
-    <div class="player-track-name">The Black Willow — Chapter 2: The Family</div>
+    <div class="player-track-name">The Black Willow — Chapter 1: The World</div>
     <div class="player-track-version" id="version-label">No Music Version</div>
   </div>
 
@@ -382,9 +409,9 @@ html, body {
         oninput="setVolume(this.value)">
     </div>
 
-    <button class="ctrl-btn" onclick="skipAudio(-30)">‹30</button>
+    <button class="ctrl-btn" onclick="skipAudio(-30)" title="Back 30s">‹30</button>
     <button class="ctrl-btn play-btn" id="play-btn" onclick="togglePlay()">▶</button>
-    <button class="ctrl-btn" onclick="skipAudio(30)">30›</button>
+    <button class="ctrl-btn" onclick="skipAudio(30)" title="Forward 30s">30›</button>
 
     <button class="speed-btn" id="speed-btn" onclick="cycleSpeed()">1.0×</button>
 
@@ -392,24 +419,32 @@ html, body {
   </div>
 </div>
 
+<!-- Audio elements -->
 <audio id="audio-no-music" preload="metadata">
-  <source src="../audio/BW_S01E02.mp3" type="audio/mpeg">
+  <source src="../audio/BW_S01E01_final.mp3" type="audio/mpeg">
 </audio>
 <audio id="audio-music" preload="metadata">
-  <source src="../audio/BW_S01E02_final.mp3" type="audio/mpeg">
+  <source src="../audio/BW_S01E01_final.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+// ── STATE ──
 let currentVersion = 'no-music';
 let currentAudio = document.getElementById('audio-no-music');
 let isPlaying = false;
 let speeds = [0.8, 0.9, 1.0, 1.1, 1.25, 1.5];
 let speedIdx = 2;
 
+// ── INIT ──
 function init() {
+  // Fade in side images
   setTimeout(() => {
-    document.querySelectorAll('.side-img').forEach(img => img.classList.add('visible'));
+    document.querySelectorAll('.side-img').forEach(img => {
+      img.classList.add('visible');
+    });
   }, 300);
+
+  // Wire audio events
   setupAudioEvents(document.getElementById('audio-no-music'));
   setupAudioEvents(document.getElementById('audio-music'));
 }
@@ -423,40 +458,72 @@ function setupAudioEvents(audio) {
     document.getElementById('time-cur').textContent = fmt(audio.currentTime);
     document.getElementById('time-total').textContent = fmt(audio.duration);
   };
-  audio.onended = () => { isPlaying = false; document.getElementById('play-btn').textContent = '▶'; };
-  audio.onplay = () => { isPlaying = true; document.getElementById('play-btn').textContent = '⏸'; };
-  audio.onpause = () => { isPlaying = false; document.getElementById('play-btn').textContent = '▶'; };
+
+  audio.onended = () => {
+    isPlaying = false;
+    document.getElementById('play-btn').textContent = '▶';
+  };
+
+  audio.onplay = () => {
+    isPlaying = true;
+    document.getElementById('play-btn').textContent = '⏸';
+  };
+
+  audio.onpause = () => {
+    isPlaying = false;
+    document.getElementById('play-btn').textContent = '▶';
+  };
 }
 
+// ── VERSION SWITCH ──
 function switchVersion(version) {
   const wasPlaying = isPlaying;
   const currentTime = currentAudio.currentTime;
+
   currentAudio.pause();
+
   currentVersion = version;
-  currentAudio = document.getElementById(version === 'music' ? 'audio-music' : 'audio-no-music');
+  currentAudio = document.getElementById(
+    version === 'music' ? 'audio-music' : 'audio-no-music'
+  );
+
   currentAudio.currentTime = currentTime;
+
   document.getElementById('btn-no-music').classList.toggle('active', version === 'no-music');
   document.getElementById('btn-music').classList.toggle('active', version === 'music');
-  document.getElementById('version-label').textContent = version === 'music' ? 'With Music' : 'No Music Version';
-  if (wasPlaying) currentAudio.play().catch(() => {});
+  document.getElementById('version-label').textContent =
+    version === 'music' ? 'With Music' : 'No Music Version';
+
+  if (wasPlaying) {
+    currentAudio.play().catch(() => {});
+  }
 }
 
+// ── CONTROLS ──
 function togglePlay() {
-  if (isPlaying) currentAudio.pause();
-  else currentAudio.play().catch(() => {});
+  if (isPlaying) {
+    currentAudio.pause();
+  } else {
+    currentAudio.play().catch(() => {});
+  }
 }
 
 function skipAudio(secs) {
-  currentAudio.currentTime = Math.max(0, Math.min(currentAudio.duration || 0, currentAudio.currentTime + secs));
+  currentAudio.currentTime = Math.max(0,
+    Math.min(currentAudio.duration || 0, currentAudio.currentTime + secs)
+  );
 }
 
 function seekAudio(e) {
   const bar = document.getElementById('timeline');
   const rect = bar.getBoundingClientRect();
   const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-  if (currentAudio.duration) currentAudio.currentTime = pct * currentAudio.duration;
+  if (currentAudio.duration) {
+    currentAudio.currentTime = pct * currentAudio.duration;
+  }
 }
 
+// Drag seek
 let dragging = false;
 document.getElementById('timeline').addEventListener('mousedown', () => dragging = true);
 document.addEventListener('mousemove', (e) => {
@@ -464,20 +531,26 @@ document.addEventListener('mousemove', (e) => {
   const bar = document.getElementById('timeline');
   const rect = bar.getBoundingClientRect();
   const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
-  if (currentAudio.duration) currentAudio.currentTime = pct * currentAudio.duration;
+  if (currentAudio.duration) {
+    currentAudio.currentTime = pct * currentAudio.duration;
+  }
 });
 document.addEventListener('mouseup', () => dragging = false);
 
+// Touch seek
 document.getElementById('timeline').addEventListener('touchmove', (e) => {
   e.preventDefault();
   const bar = document.getElementById('timeline');
   const rect = bar.getBoundingClientRect();
   const touch = e.touches[0];
   const pct = Math.max(0, Math.min(1, (touch.clientX - rect.left) / rect.width));
-  if (currentAudio.duration) currentAudio.currentTime = pct * currentAudio.duration;
+  if (currentAudio.duration) {
+    currentAudio.currentTime = pct * currentAudio.duration;
+  }
 }, { passive: false });
 
 function setVolume(val) {
+  currentAudio.volume = val / 100;
   document.getElementById('audio-no-music').volume = val / 100;
   document.getElementById('audio-music').volume = val / 100;
 }
@@ -491,9 +564,12 @@ function cycleSpeed() {
 
 function fmt(s) {
   if (!s || isNaN(s)) return '0:00';
-  return Math.floor(s/60) + ':' + String(Math.floor(s%60)).padStart(2,'0');
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return m + ':' + String(sec).padStart(2, '0');
 }
 
+// ── START ──
 init();
 </script>
 </body>
